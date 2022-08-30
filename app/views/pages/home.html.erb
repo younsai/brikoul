@@ -1,2 +1,5 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
+<%= link_to 'Missions', missions_path %>

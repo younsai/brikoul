@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_155806) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_191219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bids", force: :cascade do |t|
+    t.text "message"
+    t.float "price"
+    t.boolean "accepted", default: false
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_bids_on_mission_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.string "title"
+    t.text "details"
+    t.float "price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_missions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +44,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_155806) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "birthdate"
+    t.string "username"
+    t.string "phone_number"
+    t.string "cnie"
+    t.text "resume"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bids", "missions"
+  add_foreign_key "bids", "users"
+  add_foreign_key "missions", "users"
 end
