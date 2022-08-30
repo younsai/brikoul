@@ -1,4 +1,4 @@
 class Bid < ApplicationRecord
   belongs_to :user
-  belongs_to :offers
+  belongs_to :mission
 end

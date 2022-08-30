@@ -5,6 +5,10 @@ class MissionsController < ApplicationController
     @missions = Mission.all
   end
 
+  def my_missions
+    @missions = Mission.where('user_id = ?', current_user)
+  end
+
   def show
     @mission = Mission.find(params[:id])
   end

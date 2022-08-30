@@ -1,2 +1,6 @@
 <h1>Bids#show</h1>
 <p>Find me in app/views/bids/show.html.erb</p>
+<%= @bid.message %>
+<%= @bid.price %>
+<%= link_to 'Edit', edit_bid_path(@bid) %>
+<%= link_to 'Delete', mission_bid_path(@bid.mission_id, @bid),  data: {turbo_method: :delete} %>

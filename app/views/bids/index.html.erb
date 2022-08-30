@@ -1,2 +1,5 @@
 <h1>Bids#index</h1>
 <p>Find me in app/views/bids/index.html.erb</p>
+<% @bids.each do |bid| %>
+<li><%= link_to bid.message, bid_path(bid)%> | <%= bid.mission.title %></li>
+<% end %>

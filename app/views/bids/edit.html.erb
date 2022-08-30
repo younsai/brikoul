@@ -1,2 +1,7 @@
 <h1>Bids#edit</h1>
 <p>Find me in app/views/bids/edit.html.erb</p>
+<%= simple_form_for(@bid) do |f| %>
+  <%= f.input :message %>
+  <%= f.input :price %>
+  <%= f.submit %>
+<% end %>
