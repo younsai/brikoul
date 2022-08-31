@@ -1,5 +1,6 @@
 <h1>Missions#show</h1>
 <p>Find me in app/views/missions/show.html.erb</p>
+<%= @mission.title %><br>
 <%= @mission.details %>
 <% @mission.bids.each do |bid| %>
 <li><%= bid.message %></li>

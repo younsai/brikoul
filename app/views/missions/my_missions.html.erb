@@ -1,3 +1,4 @@
 <% @missions.each do |mission|%>
+<%= link_to 'New mission',  new_mission_path%>
 <li><%= link_to mission.title, mission_bids_path(mission) %></li>
 <% end %>

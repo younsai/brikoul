@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: %i[show edit update destroy]
+  before_action :set_mission, only: %i[new create]
   def index
     @bids = Bid.where('user_id = ?', current_user)
   end
@@ -8,14 +9,12 @@ class BidsController < ApplicationController
   end
 
   def new
-    @mission = Mission.find(params[:mission_id])
     @bid = Bid.new
   end
 
   def create
     @bid = Bid.new(bid_params)
     @bid.user = current_user
-    @mission = Mission.find(params[:mission_id])
     @bid.mission = @mission
     if @bid.save
       redirect_to bids_path(@bid)
@@ -50,5 +49,9 @@ class BidsController < ApplicationController
 
   def set_bid
     @bid = Bid.find(params[:id])
+  end
+
+  def set_mission
+    @mission = Mission.find(params[:mission_id])
   end
 end

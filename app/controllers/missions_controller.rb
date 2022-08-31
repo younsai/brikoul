@@ -1,5 +1,6 @@
 class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :set_mission, only: %i[show]
 
   def index
     @missions = Mission.all
@@ -10,13 +11,21 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @mission = Mission.find(params[:id])
   end
 
   def new
+    @mission = Mission.new
   end
 
   def create
+    @mission = Mission.new(mission_params)
+    @bid.user = current_user
+    @bid.mission = @mission
+    if @bid.save
+      redirect_to my_missions_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -26,5 +35,15 @@ class MissionsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def mission_params
+    params.require(:bid).permit(:title, :details, :price)
+  end
+
+  def set_mission
+    @mission = Mission.find(params[:id])
   end
 end
