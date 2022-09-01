@@ -20,12 +20,10 @@
           <%= link_to 'Edit', edit_bid_path(bid) %>
           <%= link_to 'Delete', mission_bid_path(bid.mission_id, bid),  data: {turbo_method: :delete} %>
           <% elsif bid.user != current_user && @mission.user == current_user %>
-          Accept
+          <%= link_to 'Accept', accept_path(bid),  data: {turbo_method: :patch}  %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-
