@@ -19,10 +19,9 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
-    @bid.user = current_user
-    @bid.mission = @mission
-    if @bid.save
-      redirect_to my_missions_path
+    @mission.user = current_user
+    if @mission.save
+      redirect_to bids_path
     else
       render :new, status: :unprocessable_entity
     end

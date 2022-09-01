@@ -1,8 +1,29 @@
-<h1>Missions#show</h1>
-<p>Find me in app/views/missions/show.html.erb</p>
-<%= @mission.title %><br>
-<%= @mission.details %>
-<% @mission.bids.each do |bid| %>
-<li><%= bid.message %></li>
-<% end %>
-<%= link_to 'Bid', new_mission_bid_path(@mission)%>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <%= @mission.title %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @mission.details %></p>
+      <% if @mission.user != current_user%>
+        <%= link_to 'Bid', new_mission_bid_path(@mission), class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <h1>Bids</h1>
+    <% @mission.bids.each do |bid| %>
+      <div class="card">
+        <div class="card-body">
+          <%= bid.message %>
+          <% if bid.user == current_user %>
+          <%= link_to 'Edit', edit_bid_path(bid) %>
+          <%= link_to 'Delete', mission_bid_path(bid.mission_id, bid),  data: {turbo_method: :delete} %>
+          <% elsif bid.mission.user = current_user%>
+          Accept
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
