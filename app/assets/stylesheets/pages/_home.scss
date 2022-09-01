@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+div.hero{
+  background-image: url('https://res.cloudinary.com/younsai/image/upload/v1662020074/g7w5tuk19azlzbk6ll1r.jpg');
+  background-size: cover;
+  height: 500px;
+}
+
+div.mask{
+  background-color: rgba(196, 196, 196, 0.5);
+}
+body{
+  background-attachment: #DCDCDC;
+}
+.all-missions{
+  display: inline-block;
+  text-align: right ;
+}

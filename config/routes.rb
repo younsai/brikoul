@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :missions do
     resources :bids, only: %i[index show new create edit update destroy]
   end
+
+  patch '/custombids/:id', to: 'bids#accept_bid', as: 'accept'
+
 end

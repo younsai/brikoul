@@ -1,7 +1,39 @@
-<h1>Pages#homepage</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<div class="p-5 text-center bg-image rounded-3 hero">
+  <div class="mask">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-black p-4 align-self-center">
+        <h1 class="mb-3">Unlock your potential.</h1>
+        <h4 class="mb-3">Our mission is to provide Moroccan freelancers with a smooth job search experience.</h4>
+        <a class="btn btn-warning btn-lg" href="#" role="button">Learn more.</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Missions', missions_path %>
-<%= link_to 'My Bids', bids_path %>
-<%= link_to 'My Missions', my_missions_path %>
+<%# <div class="container">
+  <div class="card bg-dark text-white"> %>
+    <%# <%= cl_image_tag("byeb1q8p7zfxipfnd4dx", class:'card-img') %>
+    <%# <div class="card-img-overlay">
+      <h5 class="card-title">Work from wherever !</h5>
+      <p class="card-text">Our mission is to provide Moroccan freelancers with a smooth job search experience.</p>
+    </div>
+  </div>
+</div> %>
+
+<div class="container mt-5">
+  <div class="container d-flex flex-wrap">
+    <% @missions.first(5).each do |mission|%>
+      <div class="card m-1"style="width: 206px">
+        <%= cl_image_tag("oorxnhfwegtuekzccdxt", class:'card-img-top') %>
+        <div class="card-body">
+          <h2 class="card-title"><h2 class="card-title"><%= link_to mission.title, mission_path(mission)%></h2></h2>
+          <h3 class="card-subtitle"><%= mission.user.username %></h3>
+          <p class="text-truncate"><%= mission.details %></p>
+          <h4><%= mission.price %> MAD</h4>
+          <%= link_to 'Bid', new_mission_bid_path(mission), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'All Missions', missions_path, class: 'all-missions' %>
+</div>
