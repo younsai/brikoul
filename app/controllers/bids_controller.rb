@@ -17,7 +17,7 @@ class BidsController < ApplicationController
     @bid.user = current_user
     @bid.mission = @mission
     if @bid.save
-      redirect_to bids_path(@bid)
+      redirect_to bids_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+div.hero{
+  background-image: url('https://images.unsplash.com/photo-1591467554401-1ec5c94dec4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-size: cover;
+  height: 500px;
+}
+
+div.mask{
+  background-color: rgba(196, 196, 196, 0.5);
+}
+body{
+  background-attachment: #DCDCDC;
+}
+.all-missions{
+  display: inline-block;
+  text-align: right ;
+}
+
+// .card-img-overlay .card-title{
+//   color:#000000;
+//   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+//   font-weight: bold;
+//   font-size: 64px;
+// }
