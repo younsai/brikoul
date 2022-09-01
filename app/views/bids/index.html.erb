@@ -14,6 +14,7 @@
             <tr>
               <td><%= bid.mission.title %></td>
               <td><%= link_to bid.message, bid_path(bid) %></td>
+              <td><%= 'Accepted' if bid.accepted == true %></td>
             </tr>
       <% end %>
     </tbody>

@@ -1,6 +1,6 @@
 class BidsController < ApplicationController
-  before_action :set_bid, only: %i[show edit update destroy]
-  before_action :set_mission, only: %i[new create]
+  before_action :set_bid, only: %i[show edit update destroy accept_bid]
+  before_action :set_mission, only: %i[new create edit update]
   def index
     @bids = Bid.where('user_id = ?', current_user)
   end
@@ -27,8 +27,12 @@ class BidsController < ApplicationController
   end
 
   def update
-    @bid.message = bid_params
-    @bid.price = bid_params
+    if @bid.user == current_user
+      @bid.message = bid_params
+      @bid.price = bid_params
+    elsif @bid.mission.user == current_user
+      @bid.accepted = true
+    end
     if @bid.update(bid_params)
       redirect_to bid_path(@bid)
     else
@@ -39,6 +43,12 @@ class BidsController < ApplicationController
   def destroy
     @bid.destroy
     redirect_to bids_path, status: :see_other
+  end
+
+  def accept_bid
+    @bid.accepted = true
+    @bid.save
+    redirect_to missions_path, status: :see_other
   end
 
   private
