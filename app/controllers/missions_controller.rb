@@ -21,7 +21,7 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
     @mission.user = current_user
     if @mission.save
-      redirect_to bids_path
+      redirect_to my_missions_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class MissionsController < ApplicationController
   private
 
   def mission_params
-    params.require(:bid).permit(:title, :details, :price)
+    params.require(:mission).permit(:title, :details, :price)
   end
 
   def set_mission

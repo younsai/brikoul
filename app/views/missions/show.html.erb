@@ -19,7 +19,7 @@
           <% if bid.user == current_user %>
           <%= link_to 'Edit', edit_bid_path(bid) %>
           <%= link_to 'Delete', mission_bid_path(bid.mission_id, bid),  data: {turbo_method: :delete} %>
-          <% elsif bid.mission.user = current_user%>
+          <% elsif bid.user != current_user && @mission.user == current_user %>
           Accept
           <% end %>
         </div>
@@ -27,3 +27,5 @@
     <% end %>
   </div>
 </div>
+
+

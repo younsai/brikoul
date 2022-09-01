@@ -6,15 +6,14 @@
       <tr style="text-align: center;">
         <th scope="col">Mission</th>
         <th scope="col">Your Message</th>
-        <th scope="col">Employer</th>
+        <th scope="col">Status</th>
       </tr>
     </thead>
       <tbody>
       <% @bids.each do |bid| %>
             <tr>
               <td><%= bid.mission.title %></td>
-              <td><%= link_to bid.message, bid_path(bid)%></td>
-              <td>@<%= bid.user.username %></td>
+              <td><%= link_to bid.message, bid_path(bid) %></td>
             </tr>
       <% end %>
     </tbody>
