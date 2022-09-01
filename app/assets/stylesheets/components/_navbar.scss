@@ -1,12 +1,137 @@
-.navbar-lewagon {
-  justify-content: space-between;
+*, body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  overflow: hidden;
+}
+
+header {
+  height: 70vh;
+  width: 100%;
+  background-image: url('https://unsplash.com/photos/Lks7vei-eAg/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjYyMDEzMzQy&force=true');
+  background-size: cover;
+
+
+/*     padding: 2.8em 2.8em 0 2.8em; */
+
+}
+
+.top-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+/*   z-index: 10; */
+}
+
+.empty::before {
+  content: " ";
+/*   background-image: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0)) !important; */
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+/*   width: 100%; */
+  opacity: 1;
+}
+
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 0.6px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+  flex: 1 0 0%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  // flex: 1.5 0 0%;
+  min-width: 50%;
+}
+
+.nav-menu {
+  margin-bottom: 24px;
+}
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu ul li {
+  margin: 0 8px;
+}
+
+.nav-menu ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+.nav-menu ul li a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Search form */
+.search {
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-evenly;
   background: white;
+/*   height: 50px; */
+  border-radius: 50px;
+  overflow: hidden;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.search .label {
+  display: block;
+  font-size: 0.75rem;
+  color: #111111;
+  font-weight: bold;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.search-inputs {
+/*   flex: 1 0 auto; */
+  padding: 16px 24px;
+}
+
+.search-inputs:nth-child(1) {
+  flex: 1.5 0 0%;
+}
+
+.search-inputs:nth-child(2),
+.search-inputs:nth-child(3){
+  flex: 1 0 0%;
+}
+
+.search-inputs:nth-child(4){
+  flex: 0.85 0 0%;
+}
+
+.search-inputs input {
+  border: none;
+  display: block;
+}
+
+.search-button {
+  flex: 0 0 auto;
+  padding: 8px 8px 8px 0;
+}
+
+.search-button button {
+  font-size: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  background: red;
+  color: white;
+}
+
+.cta {
+  flex: 1.5 0 0%;
 }
