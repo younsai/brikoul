@@ -53,18 +53,18 @@
 
 <div class="container mt-5">
   <div class="container d-flex flex-wrap">
-    <% @missions.first(5).each do |mission|%>
-      <div class="card m-1"style="width: 206px">
+    <% @missions.first(4).each do |mission|%>
+      <div class="card m-1"style="width: 265px">
         <%= cl_image_tag("oorxnhfwegtuekzccdxt", class:'card-img-top') %>
         <div class="card-body">
           <h2 class="card-title"><h2 class="card-title"><%= link_to mission.title, mission_path(mission)%></h2></h2>
           <h3 class="card-subtitle"><%= mission.user.username %></h3>
           <p class="text-truncate"><%= mission.details %></p>
-          <h4><%= mission.price %> MAD/hr</h4>
+          <h4><%= mission.price %> MAD</h4>
           <%= link_to 'Bid', new_mission_bid_path(mission), class: 'btn btn-primary'%>
         </div>
       </div>
     <% end %>
+    <%= link_to 'All Missions', missions_path, class: 'btn btn-outline-primary'%>
   </div>
-
 </div>

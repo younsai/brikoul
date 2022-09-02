@@ -20,34 +20,42 @@
         <div class="card mb-5">
           <div class="card-header">
             <div class="card-title"><%= bid.user.username %></div>
-            pe
+
           </div>
           <div class="card-body">
             <div class="card-text"><%= bid.message %></div>
           </div>
-          <div class="card-footer">
-            <% time = (-(bid.created_at - DateTime.now).round) %>
-            <% if time > 604800 %>
-              <% days = time / 604800 %>
-              <%= days %> days
-            <% elsif time > 86400 %>
-              <% days = time / 86400 %>
-              <%= days %> days
-            <% elsif time > 3600 %>
-              <% hours = time / 3600 %>
-              <%= hours %> hours
-            <% elsif time > 3600 %>
-              <% hours = time / 3600 %>
-              <%= hours %> hours
-            <% elsif time > 60 %>
-              <% min = time / 60 %>
-              <%= min %> minutes
-            <% elsif time < 60 %>
-              <%= time %> secondes
-            <% end %>
+          <div class="card-footer d-flex justify-content-between">
+            <div><%= bid.price.to_i %> MAD</div>
+            <div>
+              <% time = (-(bid.created_at - DateTime.now).round) %>
+              <% if time > 604800 %>
+                <% days = time / 604800 %>
+                <%= days %> days
+              <% elsif time > 86400 %>
+                <% days = time / 86400 %>
+                <%= days %> days
+              <% elsif time > 3600 %>
+                <% hours = time / 3600 %>
+                <%= hours %> hours
+              <% elsif time > 3600 %>
+                <% hours = time / 3600 %>
+                <%= hours %> hours
+              <% elsif time > 60 %>
+                <% min = time / 60 %>
+                <%= min %> minutes
+              <% elsif time < 60 %>
+                <%= time %> secondes
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
