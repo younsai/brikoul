@@ -26,4 +26,5 @@ Mission.all.each do |mission|
   user_ids.each do |id|
     Bid.create(message: Faker::Lorem.paragraph, price: Faker::Commerce.price, user_id: id, mission_id: mission.id)
   end
+  user_ids << mission.user_id
 end
