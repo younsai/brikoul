@@ -7,6 +7,5 @@ class User < ApplicationRecord
   has_many :bids, dependent: :destroy
   has_many :missions, dependent: :destroy
   has_many :missions, through: :bids, dependent: :destroy
-  # validates :email, :first_name, :last_name, :username, :phone_number, :cnie, :resume, presence: true
-  # validates :username, :cnie, uniqueness: true
+  validates :email, :first_name, :last_name, :username, presence: true
 end
