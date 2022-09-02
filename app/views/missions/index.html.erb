@@ -3,10 +3,10 @@
     <div class="card m-1"style="width: 206px">
       <%= cl_image_tag("oorxnhfwegtuekzccdxt", class:'card-img-top') %>
       <div class="card-body">
-        <h2 class="card-title"><%= link_to mission.title, mission_path(mission)%></h2>
-        <h3 class="card-subtitle"><%= mission.user.username %></h3>
+        <h5 class="card-title"><%= link_to mission.title, mission_path(mission)%></h5>
+        <h4 class="card-subtitle"><%= mission.user.username %></h4>
         <p class="text-truncate"><%= mission.details %></p>
-        <h4><%= mission.price %> MAD/hr</h4>
+        <h5><%= mission.price.to_i %> MAD</h5>
         <%= link_to 'Bid', new_mission_bid_path(mission), class: 'btn btn-primary'%>
       </div>
     </div>
