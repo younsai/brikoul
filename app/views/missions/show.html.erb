@@ -11,19 +11,42 @@
     </div>
   </div>
   <div class="container mt-4">
-    <h1>Bids</h1>
-    <% @mission.bids.each do |bid| %>
-      <div class="card">
-        <div class="card-body">
-          <%= bid.message %>
-          <% if bid.user == current_user %>
-          <%= link_to 'Edit', edit_bid_path(bid) %>
-          <%= link_to 'Delete', mission_bid_path(bid.mission_id, bid),  data: {turbo_method: :delete} %>
-          <% elsif bid.user != current_user && @mission.user == current_user %>
-          <%= link_to 'Accept', accept_path(bid),  data: {turbo_method: :patch}  %>
-          <% end %>
-        </div>
+
+    <div class="card">
+      <div class="card-header">
+      <div class="card-title"><h2>Bids</h2></div>
       </div>
-    <% end %>
+      <% @mission.bids.each do |bid| %>
+        <div class="card mb-5">
+          <div class="card-header">
+            <div class="card-title"><%= bid.user.username %></div>
+          </div>
+          <div class="card-body">
+            <div class="card-text"><%= bid.message %></div>
+          </div>
+          <div class="card-footer">
+            <% time = (-(bid.created_at - DateTime.now).round) %>
+            <% if time > 604800 %>
+              <% days = time / 604800 %>
+              <%= days %> days
+            <% elsif time > 86400 %>
+              <% days = time / 86400 %>
+              <%= days %> days
+            <% elsif time > 3600 %>
+              <% hours = time / 3600 %>
+              <%= hours %> hours
+            <% elsif time > 3600 %>
+              <% hours = time / 3600 %>
+              <%= hours %> hours
+            <% elsif time > 60 %>
+              <% min = time / 60 %>
+              <%= min %> minutes
+            <% elsif time < 60 %>
+              <%= time %> secondes
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

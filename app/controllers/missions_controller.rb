@@ -25,6 +25,7 @@ class MissionsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    raise
   end
 
   def edit
