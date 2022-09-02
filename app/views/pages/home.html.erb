@@ -1,4 +1,4 @@
-<div class="p-5 text-center bg-image rounded-3 hero">
+<div class="p-5 text-center bg-image rounded-3 hero mb-5">
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-black p-4 align-self-center">
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-  <div class="">
+  <div class="mb-5">
     <div >
       <div class="container p-3">
         <div class="row">
@@ -32,8 +32,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-
-          <h2></h2>
           <div class="card bg-dark d-flex align-self-center">
             <img src="https://i.kym-cdn.com/photos/images/original/001/900/244/fb7.jpg" alt=""
               class="w-100 rounded card-img gigachad">
@@ -44,13 +42,8 @@
                     <p class=""><small></small></p>
                 </div>
 
-               <%= link_to 'Browse Missions', missions_path, class: 'btn btn-warning custom-btn' %>
-
-                <a href="#" class="btn btn-warning custom-btn">
-                  <span class="">
-                    Create Mission
-                  </span>
-                </a>
+                <%= link_to 'Browse Missions', missions_path, class: 'btn btn-warning custom-btn' %>
+                <%= link_to 'Create Mission', new_mission_path, class: 'btn btn-warning custom-btn' %>
               </div>
             </div>
           </div>
@@ -60,18 +53,18 @@
 
 <div class="container mt-5">
   <div class="container d-flex flex-wrap">
-    <% @missions.first(5).each do |mission|%>
-      <div class="card m-1"style="width: 206px">
+    <% @missions.first(4).each do |mission|%>
+      <div class="card m-1"style="width: 265px">
         <%= cl_image_tag("oorxnhfwegtuekzccdxt", class:'card-img-top') %>
         <div class="card-body">
           <h2 class="card-title"><h2 class="card-title"><%= link_to mission.title, mission_path(mission)%></h2></h2>
           <h3 class="card-subtitle"><%= mission.user.username %></h3>
           <p class="text-truncate"><%= mission.details %></p>
-          <h4><%= mission.price %> MAD/hr</h4>
+          <h4><%= mission.price %> MAD</h4>
           <%= link_to 'Bid', new_mission_bid_path(mission), class: 'btn btn-primary'%>
         </div>
       </div>
     <% end %>
+    <%= link_to 'All Missions', missions_path, class: 'btn btn-outline-primary'%>
   </div>
-
 </div>
