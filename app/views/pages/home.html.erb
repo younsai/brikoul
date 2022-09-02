@@ -10,15 +10,53 @@
   </div>
 </div>
 
-<%# <div class="container">
-  <div class="card bg-dark text-white"> %>
-    <%# <%= cl_image_tag("byeb1q8p7zfxipfnd4dx", class:'card-img') %>
-    <%# <div class="card-img-overlay">
-      <h5 class="card-title">Work from wherever !</h5>
-      <p class="card-text">Our mission is to provide Moroccan freelancers with a smooth job search experience.</p>
+  <div class="">
+    <div >
+      <div class="container p-3">
+        <div class="row">
+          <div class="col-md-8">
+            <h3>The time is now.</h3>
+            <p>Our mission is to provide Moroccan freelancers &amp; with a smooth job search experience. </p>
+            <p>Find offers from Hundreds of companies and organizations in Morocco.</p>
+            <strong>Chase your dreams, Join today.</strong>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="https://www.westend61.de/images/0001162941pw/womans-hands-working-on-laptop-at-home-office-top-view-MOMF00639.jpg"
+              alt="" class="w-100 rounded">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div> %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <h2></h2>
+          <div class="card bg-dark d-flex align-self-center">
+            <img src="https://i.kym-cdn.com/photos/images/original/001/900/244/fb7.jpg" alt=""
+              class="w-100 rounded card-img gigachad">
+            <div class="card-img-overlay card-container">
+              <div class="p-3 mb-3 d-flex justify-content-center flex-wrap">
+                <div class="quote">
+                    <p style="color:rgb(0,0, 0); text-align: center;"><b>Make your dreams come true.</b> </p>
+                    <p class=""><small></small></p>
+                </div>
+
+               <%= link_to 'Browse Missions', missions_path, class: 'btn btn-warning custom-btn' %>
+
+                <a href="#" class="btn btn-warning custom-btn">
+                  <span class="">
+                    Create Mission
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <div class="container mt-5">
   <div class="container d-flex flex-wrap">
@@ -29,11 +67,11 @@
           <h2 class="card-title"><h2 class="card-title"><%= link_to mission.title, mission_path(mission)%></h2></h2>
           <h3 class="card-subtitle"><%= mission.user.username %></h3>
           <p class="text-truncate"><%= mission.details %></p>
-          <h4><%= mission.price %> MAD</h4>
+          <h4><%= mission.price %> MAD/hr</h4>
           <%= link_to 'Bid', new_mission_bid_path(mission), class: 'btn btn-primary'%>
         </div>
       </div>
     <% end %>
   </div>
-  <%= link_to 'All Missions', missions_path, class: 'all-missions' %>
+
 </div>
