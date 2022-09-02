@@ -15,3 +15,26 @@ body{
   display: inline-block;
   text-align: right ;
 }
+.card-container{
+  padding-top: 160px;
+  >div{
+     background-color: #ffffff87;
+  }
+
+}
+.quote{
+  width: 100%;
+}
+
+.custom-btn{
+  min-width: 150px;
+  margin-left: 12px;
+}
+.custom-btn:hover{
+  background-color: black;
+  color: #ffc107;
+  }
+.gigachad{
+  height: 400px;
+  object-fit: cover;
+}
