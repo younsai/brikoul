@@ -16,7 +16,7 @@ user_ids = []
     password_confirmation: 'WfN6uYm4EyW5mXm')
 
   3.times do
-    Mission.create(title: Faker::Job.title, details: Faker::Lorem.paragraph, price: Faker::Commerce.price, user_id: user.id)
+    Mission.create(title: Faker::Job.title, details: Faker::Lorem.paragraph, price: Faker::Commerce.price(range: 100..100_000), user_id: user.id)
   end
   user_ids << user.id
 end
@@ -24,7 +24,7 @@ end
 Mission.all.each do |mission|
   user_ids.delete(mission.user_id)
   user_ids.each do |id|
-    Bid.create(message: Faker::Lorem.paragraph, price: Faker::Commerce.price, user_id: id, mission_id: mission.id)
+    Bid.create(message: Faker::Lorem.paragraph, price: Faker::Commerce.price(range: 100..100_000), user_id: id, mission_id: mission.id)
   end
   user_ids << mission.user_id
 end
