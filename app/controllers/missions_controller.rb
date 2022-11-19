@@ -3,7 +3,12 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: %i[show]
 
   def index
-    @missions = Mission.all
+    if params[:query].present?
+
+      @missions = Mission.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @missions = Mission.all
+    end
   end
 
   def my_missions

@@ -1,10 +1,12 @@
 <div class="container d-flex flex-wrap mt-5">
-  <div class="input-group rounded mb-5">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <span class="input-group-text border-0" id="search-addon">
-      <i class="fas fa-search"></i>
-    </span>
-  </div>
+  <%= form_with url: missions_path, method: :get, class: "d-flex w-100" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a mission"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   <div class="d-flex justify-content-center flex-wrap w-100">
     <% @missions.each do |mission|%>
       <div class="card m-1"style="width: 265px">
